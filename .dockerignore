@@ -1,0 +1,26 @@
+**/node_modules/
+**/dist
+.cache
+logs
+database
+.DS_Store
+
+#envs (except main)
+.env.local
+.env.example
+
+#git
+.git
+.gitignore
+
+.editorconfig
+.eslintrc
+.eslintignore
+yarn-error.log
+
+#docker
+**/.dockerignore
+docker-compose.yml
+local.Dockerfile
+Dockerfile
+README.md
