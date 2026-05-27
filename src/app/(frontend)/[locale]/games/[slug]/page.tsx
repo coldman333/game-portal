@@ -48,8 +48,6 @@ export default async function Post({ params: paramsPromise }: Args) {
   if (!game) return <PayloadRedirects url={url} />
 
 
-  console.log(game)
-
   return (
     <article className="">
       <PageClient />

@@ -1,10 +1,7 @@
 'use client'
-import { useHeaderTheme } from '@/providers/HeaderTheme'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-
 import type { Header } from '@/payload-types'
 
 import { HeaderNav } from './Nav'
@@ -29,7 +26,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
               height={85}
               loading="eager"
               priority
-              src="/images/header-logo.png"
+              src="/images/logo.png"
               width={85}
             />
           </Link>

@@ -1,5 +1,5 @@
 {
-  "id": "bb2a0790-4b8c-4094-b346-1f1cee1dea31",
+  "id": "5bb6e591-3ab9-4378-825f-46d4079c0485",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -1131,6 +1131,12 @@
           "primaryKey": false,
           "notNull": false,
           "default": "'lowImpact'"
+        },
+        "hero_button": {
+          "name": "hero_button",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
         },
         "hero_rich_text": {
           "name": "hero_rich_text",
@@ -2824,6 +2830,12 @@
           "primaryKey": false,
           "notNull": false,
           "default": "'lowImpact'"
+        },
+        "version_hero_button": {
+          "name": "version_hero_button",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
         },
         "version_hero_rich_text": {
           "name": "version_hero_rich_text",
@@ -5801,6 +5813,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "subtitle": {
+          "name": "subtitle",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
         "image_id": {
           "name": "image_id",
           "type": "integer",
@@ -6097,6 +6115,12 @@
         },
         "version_title": {
           "name": "version_title",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_subtitle": {
+          "name": "version_subtitle",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false

@@ -21,8 +21,8 @@ import { getServerSideURL } from "@/utilities/getURL";
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title
-    ? `${doc.title} | Payload Website Template`
-    : "Payload Website Template";
+    ? `${doc.title} | AI Game portal`
+    : "AI Game portal";
 };
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
@@ -101,23 +101,23 @@ export const plugins: Plugin[] = [
     },
   }),
   payloadCloudPlugin(),
-  s3Storage({
-    collections: {
-      media: true,
-    },
-    bucket: process.env.S3_BUCKET || "",
-    config: {
-      // Add credentials block only if both environment variables are defined
-      ...(process.env.S3_ACCESS_KEY_ID &&
-        process.env.S3_SECRET_ACCESS_KEY && {
-          credentials: {
-            accessKeyId: process.env.S3_ACCESS_KEY_ID || "",
-            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || "",
-            sessionToken: process.env.S3_ACCESS_TOKEN || "",
-          },
-        }),
-      region: process.env.S3_REGION,
-      params: { ServerSideEncryption: "AES256" },
-    },
-  }),
+  // s3Storage({
+  //   collections: {
+  //     media: true,
+  //   },
+  //   bucket: process.env.S3_BUCKET || "",
+  //   config: {
+  //     // Add credentials block only if both environment variables are defined
+  //     ...(process.env.S3_ACCESS_KEY_ID &&
+  //       process.env.S3_SECRET_ACCESS_KEY && {
+  //         credentials: {
+  //           accessKeyId: process.env.S3_ACCESS_KEY_ID || "",
+  //           secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || "",
+  //           sessionToken: process.env.S3_ACCESS_TOKEN || "",
+  //         },
+  //       }),
+  //     region: process.env.S3_REGION,
+  //     params: { ServerSideEncryption: "AES256" },
+  //   },
+  // }),
 ];
