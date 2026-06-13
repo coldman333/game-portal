@@ -1,5 +1,4 @@
 import { revalidateRedirects } from "@/hooks/revalidateRedirects";
-import { s3Storage } from "@/plugins/storage-s3";
 import { beforeSyncWithSearch } from "@/search/beforeSync";
 import { searchFields } from "@/search/fieldOverrides";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
@@ -18,6 +17,7 @@ import { Plugin } from "payload";
 
 import { Page, Post } from "@/payload-types";
 import { getServerSideURL } from "@/utilities/getURL";
+import {vercelBlobStorage} from "@payloadcms/storage-vercel-blob";
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title
@@ -101,23 +101,11 @@ export const plugins: Plugin[] = [
     },
   }),
   payloadCloudPlugin(),
-  // s3Storage({
-  //   collections: {
-  //     media: true,
-  //   },
-  //   bucket: process.env.S3_BUCKET || "",
-  //   config: {
-  //     // Add credentials block only if both environment variables are defined
-  //     ...(process.env.S3_ACCESS_KEY_ID &&
-  //       process.env.S3_SECRET_ACCESS_KEY && {
-  //         credentials: {
-  //           accessKeyId: process.env.S3_ACCESS_KEY_ID || "",
-  //           secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || "",
-  //           sessionToken: process.env.S3_ACCESS_TOKEN || "",
-  //         },
-  //       }),
-  //     region: process.env.S3_REGION,
-  //     params: { ServerSideEncryption: "AES256" },
-  //   },
-  // }),
+  vercelBlobStorage({
+    enabled: true, // Optional, defaults to true
+    collections: {
+      media: true,
+    },
+    token: process.env.BLOB_READ_WRITE_TOKEN,
+  }),
 ];
