@@ -13,8 +13,10 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN pnpm payload migrate:status
-RUN pnpm run ci
+#RUN pnpm payload migrate:status
+#RUN pnpm run ci
+
+RUN pnpm run build
 
 FROM base AS runner
 WORKDIR /app
@@ -34,4 +36,5 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME=0.0.0.0
 
-CMD ["node", "server.js"]
+#CMD ["node", "server.js"]
+CMD ["sh", "-c", "pnpm payload migrate:latest && node server.js"]
