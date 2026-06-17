@@ -20,6 +20,7 @@ import { Header } from "./Header/config";
 import { SUPPORTED_LOCALES } from "./i18n/routing";
 import { plugins } from "./plugins";
 import { getServerSideURL } from "./utilities/getURL";
+import { migrations } from './migrations'
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -67,6 +68,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || "",
     },
+    prodMigrations: migrations,
     push: false,
   }),
   collections: [Pages, Posts, Media, Categories, Users, Games],
