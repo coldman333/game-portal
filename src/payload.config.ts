@@ -75,12 +75,12 @@ export default buildConfig({
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   i18n: {
-    fallbackLanguage: "uk",
+    fallbackLanguage: "en",
     supportedLanguages: { en, uk },
   },
   localization: {
     locales: SUPPORTED_LOCALES,
-    defaultLocale: "uk",
+    defaultLocale: "en",
     fallback: false,
   },
   plugins: [
