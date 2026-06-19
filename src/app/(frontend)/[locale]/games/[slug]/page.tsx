@@ -11,6 +11,7 @@ import { LivePreviewListener } from '@/components/LivePreviewListener'
 import {GameDetailsCard} from "@/components/GameDetailsCard";
 import {cache} from "react";
 
+export const dynamic = 'force-dynamic';
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
